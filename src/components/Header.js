@@ -8,7 +8,9 @@ export default function Header() {
   const pathname = usePathname();
 
   const isAuthPage = pathname === "/register" || pathname === "/login";
-  const isLoggedInPage = pathname === "/perfil" || pathname === "/recomendaciones";
+  // La página de detalles de película y perfil seguirán mostrando el header de usuario logueado
+  // Se ha cambiado 'recomendaciones' por 'busqueda' en la condición de ruta
+  const isLoggedInPage = pathname.startsWith("/peliculas/") || pathname === "/perfil" || pathname === "/busqueda";
 
   return (
     <header className="bg-black text-white flex justify-between items-center px-4 sm:px-8 h-20">
@@ -23,19 +25,20 @@ export default function Header() {
         />
       </Link>
 
-      {/* Sección Central: Botón de Recomendaciones (condicional) */}
-      <div className="flex-grow flex justify-center"> {/* flex-grow para ocupar espacio y justify-center para centrar */}
+      {/* Sección Central: Botón de Búsqueda (condicional) */}
+      <div className="flex-grow flex justify-center">
         {isLoggedInPage && (
-          <Link href="/recomendaciones">
+          // El enlace y el texto del botón se han cambiado a 'Búsqueda'
+          <Link href="/busqueda">
             <button className="border border-white px-4 py-1 rounded hover:bg-white hover:text-black transition">
-              Recomendaciones
+              Búsqueda
             </button>
           </Link>
         )}
       </div>
 
       {/* Sección Derecha: Botones de Auth o Info de Usuario (condicional) */}
-      <div className="flex items-center space-x-4 flex-shrink-0"> {/* flex-shrink-0 para evitar que se encoja */}
+      <div className="flex items-center space-x-4 flex-shrink-0">
         {!isAuthPage && !isLoggedInPage && (
           <>
             <Link href="/register">
