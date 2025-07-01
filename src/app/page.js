@@ -35,11 +35,11 @@ export default function HomePage() {
       {/* Funcionalidades */}
       <section className="bg-gradient-to-b from-purple-900 to-black py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center px-4">
-          <Image src="/funcion1.png" alt="Función 1" width={200} height={200} />
-          <Image src="/funcion2.png" alt="Función 2" width={200} height={200} />
-          <Image src="/funcion3.png" alt="Función 3" width={200} height={200} />
-          <Image src="/funcion4.png" alt="Función 4" width={200} height={200} />
-          <Image src="/funcion5.png" alt="Función 5" width={200} height={200} />
+          <Image src="/pirata.jpeg" alt="Función 1" width={400} height={200} />
+          <Image src="/vikingo.jpeg" alt="Función 2" width={400} height={200} />
+          <Image src="/mago.jpeg" alt="Función 3" width={400} height={200} />
+          <Image src="/samurai.jpeg" alt="Función 4" width={400} height={200} />
+          <Image src="/agente.jpeg" alt="Función 5" width={400} height={200} />
         </div>
       </section>
 
