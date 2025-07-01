@@ -1,0 +1,58 @@
+import Image from "next/image";
+
+export default function PerfilPage() {
+  const insignias = [
+    { img: "/insignia1.png", texto: "COMEDIANTE (20 comedias)" },
+    { img: "/insignia2.png", texto: "COMEDIANTE PRINCIPIANTE (5 comedias)" },
+    { img: "/insignia3.png", texto: "CINEFILO (20 películas)" },
+    { img: "/insignia4.png", texto: "CINEFILO PRO (50 películas)" },
+    { img: "/insignia5.png", texto: "CINEFILO LEYENDA (100 películas)" },
+  ];
+
+  const vistas = [
+    { img: "/padrino.jpg", titulo: "El Padrino" },
+    { img: "/lilo.jpg", titulo: "Lilo y Stitch" },
+    { img: "/lotr.jpg", titulo: "El Señor de los Anillos" },
+    { img: "/vicky.jpg", titulo: "Vicky Cristina Barcelona" },
+  ];
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-purple-900 to-black text-white px-8 py-6">
+      {/* Header sin navegación */}
+      <div className="flex justify-between items-center mb-6">
+        <Image src="/logo.png" alt="Logo" width={100} height={40} />
+        <div className="flex items-center gap-2">
+          <span>Usuario123</span>
+          <Image src="/avatar.png" alt="Avatar" width={40} height={40} className="rounded-full" />
+        </div>
+      </div>
+
+      {/* Contenido principal */}
+      <div className="flex flex-col md:flex-row gap-12">
+        {/* Insignias */}
+        <div className="space-y-4 w-full md:w-1/3">
+          <h2 className="text-lg font-semibold mb-2">INSIGNIAS</h2>
+          {insignias.map((insignia, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <Image src={insignia.img} alt="Insignia" width={40} height={40} />
+              <span className="text-sm">{insignia.texto}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Películas vistas */}
+        <div className="w-full md:w-2/3">
+          <h2 className="text-lg font-semibold mb-4">PELÍCULAS VISTAS</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {vistas.map((peli, idx) => (
+              <div key={idx} className="text-center">
+                <Image src={peli.img} alt={peli.titulo} width={120} height={160} className="rounded" />
+                <p className="text-sm mt-2">{peli.titulo}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
