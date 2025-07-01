@@ -1,3 +1,4 @@
+// src/app/recomendaciones/page.js
 "use client";
 import Image from "next/image";
 import { useState } from "react";
@@ -137,13 +138,15 @@ export default function RecomendacionesPage() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {filtrarPeliculas().map((peli, idx) => (
           <div key={idx} className="text-center">
-            <Image
-              src={peli.imagen}
-              alt={peli.titulo}
-              width={180}
-              height={180}
-              className="rounded-xl mx-auto shadow-md object-cover transition-transform duration-300 hover:scale-105"
-            />
+            {/* Contenedor de imagen con tamaño fijo para asegurar alineación */}
+            <div className="w-[180px] h-[270px] relative rounded-xl shadow-md overflow-hidden mx-auto">
+              <Image
+                src={peli.imagen}
+                alt={peli.titulo}
+                fill // Hace que la imagen llene el contenedor padre
+                className="object-cover transition-transform duration-300 hover:scale-105" // Recorta para cubrir el área
+              />
+            </div>
             <p className="mt-2 text-sm">{peli.titulo}</p>
           </div>
         ))}
