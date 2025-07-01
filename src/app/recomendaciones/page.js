@@ -152,7 +152,7 @@ export default function RecomendacionesPage() {
       {/* Footer */}
       <footer className="mt-16 text-center">
         <Image
-          src="/logo-footer.png"
+          src="/CapybaraOriginal.png"
           alt="Logo CineConecta"
           width={120}
           height={120}
