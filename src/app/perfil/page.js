@@ -20,28 +20,11 @@ export default function PerfilPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-purple-900 to-black text-white px-6 py-8">
-      {/*
-        Hemos eliminado la sección de información del usuario de aquí.
-        El Header (definido en layout.js) debería encargarse de mostrar
-        el nombre de usuario y el avatar si el usuario está logueado,
-        o los botones de "Registrarse" / "Ingresar" si no lo está.
-      */}
-      {/* <div className="flex justify-end items-center mb-8">
-        <span className="mr-3">Usuario123</span>
-        <Image
-          src="/avatar.png"
-          alt="Avatar"
-          width={40}
-          height={40}
-          className="rounded-full"
-        />
-      </div> */}
-
       {/* Contenido principal dividido en dos secciones */}
       <div className="flex flex-col md:flex-row gap-10">
         {/* Sección de Insignias (30%) */}
         <section className="w-full md:w-1/3">
-          <h2 className="text-xl font-bold mb-4">INSIGNIAS</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">INSIGNIAS</h2>
           <div className="space-y-5">
             {insignias.map((insignia, idx) => (
               <div key={idx} className="flex items-center gap-4">
@@ -54,17 +37,19 @@ export default function PerfilPage() {
 
         {/* Sección de Películas vistas (70%) */}
         <section className="w-full md:w-2/3">
-          <h2 className="text-xl font-bold mb-4 text-center md:text-left">PELÍCULAS VISTAS</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center">PELÍCULAS VISTAS</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
             {vistas.map((peli, idx) => (
               <div key={idx} className="text-center">
-                <Image
-                  src={peli.img}
-                  alt={peli.titulo}
-                  width={150}
-                  height={200}
-                  className="rounded-lg mx-auto object-cover shadow-md"
-                />
+                {/* Contenedor de imagen con tamaño fijo */}
+                <div className="w-[150px] h-[225px] relative rounded-lg mx-auto shadow-md overflow-hidden">
+                  <Image
+                    src={peli.img}
+                    alt={peli.titulo}
+                    fill // Hace que la imagen llene el contenedor padre
+                    className="object-cover transition-transform duration-300 hover:scale-105" // <-- CAMBIO AQUÍ: object-cover
+                  />
+                </div>
                 <p className="text-sm mt-2">{peli.titulo}</p>
               </div>
             ))}
