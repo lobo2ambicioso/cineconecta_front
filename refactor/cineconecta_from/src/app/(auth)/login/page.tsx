@@ -18,10 +18,15 @@ const LoginPage = () => {
     email: '',
     password: ''
   }) 
+  
   const route = useRouter()
 
   const handleRegister = () => {
     route.push('/register')
+  }
+
+  const handleHome = () => {
+    route.push('/')
   }
 
   const updateLoginForm = (key: keyof LoginForm, value: string) =>{
@@ -30,8 +35,6 @@ const LoginPage = () => {
       [key]: value
     }))
   }
-
-
 
   return (
     <main className="w-screen h-screen bg-gradient-to-b from-black from-1% to-[#3C1A81] to-50%">
@@ -51,7 +54,8 @@ const LoginPage = () => {
             alt="CineConecta Logo"
             width={100}
             height={100}
-            className="mx-auto mb-6"
+            className="mx-auto mb-6 cursor-pointer"
+            onClick={handleHome}
           />
 
           <div className="flex flex-col gap-4">
