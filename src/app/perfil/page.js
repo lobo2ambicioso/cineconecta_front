@@ -11,13 +11,6 @@ export default function PerfilPage() {
     { img: "/insignia3.png", texto: "CINEFILO LEYENDA (100 películas)" },
   ];
 
-  const vistas = [
-    { img: "/padrino.jpg", titulo: "El Padrino" },
-    { img: "/lilo.jpg", titulo: "Lilo y Stitch" },
-    { img: "/lotr.webp", titulo: "El Señor de los Anillos" },
-    { img: "/vicky.jpg", titulo: "Vicky Cristina Barcelona" },
-  ];
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-purple-900 to-black text-white px-6 py-8">
       {/* Contenido principal dividido en dos secciones */}
@@ -35,24 +28,16 @@ export default function PerfilPage() {
           </div>
         </section>
 
-        {/* Sección de Películas vistas (70%) */}
-        <section className="w-full md:w-2/3">
-          <h2 className="text-2xl font-bold mb-4 text-center">PELÍCULAS VISTAS</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {vistas.map((peli, idx) => (
-              <div key={idx} className="text-center">
-                {/* Contenedor de imagen con tamaño fijo */}
-                <div className="w-[150px] h-[225px] relative rounded-lg mx-auto shadow-md overflow-hidden">
-                  <Image
-                    src={peli.img}
-                    alt={peli.titulo}
-                    fill // Hace que la imagen llene el contenedor padre
-                    className="object-cover transition-transform duration-300 hover:scale-105" // <-- CAMBIO AQUÍ: object-cover
-                  />
-                </div>
-                <p className="text-sm mt-2">{peli.titulo}</p>
-              </div>
-            ))}
+        {/* Sección de la imagen CapiManual.png (70%) */}
+        <section className="w-full md:w-2/3 flex flex-col justify-center items-center min-h-[1000px] relative">
+          {/* Aumentamos los valores de max-w y max-h para que la imagen sea más grande */}
+          <div className="relative w-full h-full max-w-[1400px] max-h-[2000px]">
+            <Image
+              src="/CapiManual.png"
+              alt="Manual de Capi"
+              layout="fill"
+              objectFit="contain"
+            />
           </div>
         </section>
       </div>
